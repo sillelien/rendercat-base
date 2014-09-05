@@ -55,3 +55,12 @@ RUN  apt-get install -y fonts-cantarell lmodern ttf-aenigma ttf-georgewilliams t
 #RUN chmod 755 install-google-fonts.sh
 #RUN ./install-google-fonts.sh
 RUN fc-cache -fv
+
+# PhantomJS
+RUN apt-get install -y libfreetype6 libfontconfig1
+RUN tar -xjvf /tmp/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2
+RUN mv phantomjs-${PHANTOM_VERSION}-linux-x86_64 /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64
+#ADD http://rendercatdeps.s3-website-us-east-1.amazonaws.com/phantomjs-1-9-webfonts /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs
+RUN ln -s /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
+RUN chmod 755 /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs
+
