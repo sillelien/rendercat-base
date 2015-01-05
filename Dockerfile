@@ -8,7 +8,7 @@ WORKDIR /root
 # Env
 ENV SLIMERJS_VERSION_M 0.9
 ENV SLIMERJS_VERSION_F 0.9.0
-ENV PHANTOM_VERSION 1.9.7
+ENV PHANTOM_VERSION 1.9.8
 
 # Update OS.
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty multiverse" >> /etc/apt/sources.list
@@ -24,9 +24,9 @@ RUN mkdir /app
 #Nasty Downloads
 RUN mkdir ~/fonts/
 RUN apt-get install -y curl
-RUN curl http://rendercatdeps.s3-website-us-east-1.amazonaws.com/fonts.tgz > ~/fonts/fonts.tgz
-RUN curl http://rendercatdeps.s3-website-us-east-1.amazonaws.com/google.zip > ~/fonts/google.zip
-RUN curl http://rendercatdeps.s3-website-us-east-1.amazonaws.com/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2 > /tmp/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2
+RUN curl -L "http://dl.bintray.com/neilellis/rendercat//fonts.tgz" > ~/fonts/fonts.tgz
+#RUN curl -L "http://dl.bintray.com/neilellis/rendercat/google.zip" > ~/fonts/google.zip
+RUN curl -L "http://dl.bintray.com/neilellis/rendercat/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2" > /tmp/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2
 
 #NodeJS
 RUN apt-get install -y make gcc g++ wget python software-properties-common
