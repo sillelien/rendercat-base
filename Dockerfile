@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Neil Ellis neil@cazcade.com
+MAINTAINER Neil Ellis hello@neilellis.me
 
 # Set working directory.
 ENV HOME /root
