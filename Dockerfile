@@ -8,7 +8,7 @@ WORKDIR /root
 # Env
 ENV SLIMERJS_VERSION_M 0.9
 ENV SLIMERJS_VERSION_F 0.9.0
-ENV PHANTOM_VERSION 1.9.8
+# ENV PHANTOM_VERSION 1.9.8
 
 # Update OS.
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty multiverse" >> /etc/apt/sources.list
@@ -26,7 +26,7 @@ RUN mkdir ~/fonts/
 RUN apt-get install -y curl
 RUN curl -L "http://dl.bintray.com/neilellis/rendercat//fonts.tgz" > ~/fonts/fonts.tgz
 #RUN curl -L "http://dl.bintray.com/neilellis/rendercat/google.zip" > ~/fonts/google.zip
-RUN curl -L "http://dl.bintray.com/neilellis/rendercat/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2" > /tmp/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2
+# RUN curl -L "http://dl.bintray.com/neilellis/rendercat/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2" > /tmp/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2
 
 #NodeJS
 RUN apt-get install -y make gcc g++ wget python software-properties-common
@@ -58,9 +58,10 @@ RUN fc-cache -fv
 
 # PhantomJS
 RUN apt-get install -y libfreetype6 libfontconfig1
-RUN tar -xjvf /tmp/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2
-RUN mv phantomjs-${PHANTOM_VERSION}-linux-x86_64 /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64
-#ADD http://rendercatdeps.s3-website-us-east-1.amazonaws.com/phantomjs-1-9-webfonts /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs
-RUN ln -s /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
-RUN chmod 755 /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs
+RUN apt-get install -y phantomjs
+# RUN tar -xjvf /tmp/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2
+# RUN mv phantomjs-${PHANTOM_VERSION}-linux-x86_64 /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64
+# #ADD http://rendercatdeps.s3-website-us-east-1.amazonaws.com/phantomjs-1-9-webfonts /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs
+# RUN ln -s /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
+# RUN chmod 755 /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs
 
