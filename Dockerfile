@@ -7,7 +7,7 @@ WORKDIR /root
 
 # Env
 ENV SLIMERJS_VERSION_M 0.9
-ENV SLIMERJS_VERSION_F 0.9.0
+ENV SLIMERJS_VERSION_F 0.9.4
 # ENV PHANTOM_VERSION 1.9.8
 
 # Update OS.
@@ -64,4 +64,19 @@ RUN apt-get install -y phantomjs
 # #ADD http://rendercatdeps.s3-website-us-east-1.amazonaws.com/phantomjs-1-9-webfonts /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs
 # RUN ln -s /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
 # RUN chmod 755 /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs
+
+#GraphicsMagick
+RUN  apt-get install -y graphicsmagick
+
+#CutyCapt
+RUN  apt-get install -y cutycapt
+
+# SlimerJS
+RUN apt-get install -y dbus libdbus-glib-1-2  bzip2
+RUN wget -O /tmp/slimerjs-$SLIMERJS_VERSION_F-linux-x86_64.tar.bz2 http://download.slimerjs.org/v$SLIMERJS_VERSION_M/$SLIMERJS_VERSION_F/slimerjs-$SLIMERJS_VERSION_F-linux-x86_64.tar.bz2
+RUN tar -xjf /tmp/slimerjs-${SLIMERJS_VERSION_F}-linux-x86_64.tar.bz2 -C /tmp
+RUN rm -f /tmp/slimerjs-${SLIMERJS_VERSION_F}-linux-x86_64.tar.bz2
+RUN mv /tmp/slimerjs-${SLIMERJS_VERSION_F}/ /usr/local/slimerjs
+RUN ln -s /usr/local/slimerjs/slimerjs /usr/local/bin/slimerjs
+
 
