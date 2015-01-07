@@ -79,4 +79,7 @@ RUN rm -f /tmp/slimerjs-${SLIMERJS_VERSION_F}-linux-x86_64.tar.bz2
 RUN mv /tmp/slimerjs-${SLIMERJS_VERSION_F}/ /usr/local/slimerjs
 RUN ln -s /usr/local/slimerjs/slimerjs /usr/local/bin/slimerjs
 
+# Download and Install Nginx
+RUN apt-get install -y nginx
+
 
