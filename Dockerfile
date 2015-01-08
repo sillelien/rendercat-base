@@ -81,12 +81,15 @@ RUN apt-get install -y phantomjs
 
 
 # SlimerJS
-RUN apt-get install -y dbus libdbus-glib-1-2  bzip2
+RUN apt-get install -y dbus libdbus-glib-1-2  bzip2 firefox
 RUN wget -O /tmp/slimerjs-$SLIMERJS_VERSION_F-linux-x86_64.tar.bz2 http://download.slimerjs.org/v$SLIMERJS_VERSION_M/$SLIMERJS_VERSION_F/slimerjs-$SLIMERJS_VERSION_F-linux-x86_64.tar.bz2
 RUN tar -xjf /tmp/slimerjs-${SLIMERJS_VERSION_F}-linux-x86_64.tar.bz2 -C /tmp
 RUN rm -f /tmp/slimerjs-${SLIMERJS_VERSION_F}-linux-x86_64.tar.bz2
 RUN mv /tmp/slimerjs-${SLIMERJS_VERSION_F}/ /usr/local/slimerjs
 RUN ln -s /usr/local/slimerjs/slimerjs /usr/local/bin/slimerjs
+
+#Supervisord
+RUN apt-get install -y supervisor 
 
 
 
