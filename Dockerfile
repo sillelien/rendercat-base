@@ -26,7 +26,7 @@ RUN mkdir ~/fonts/
 RUN apt-get install -y curl
 RUN mkdir -p /usr/share/fonts
 RUN curl -L "http://dl.bintray.com/neilellis/rendercat/google-fonts.tgz" | tar -C /usr/share/fonts -zxvf  -
-#RUN curl -L "http://dl.bintray.com/neilellis/rendercat/fonts.tgz" | tar -C /usr/share/fonts -zxvf  -
+RUN curl -L "http://dl.bintray.com/neilellis/rendercat/fonts.tgz" | tar -C /usr/share/fonts -zxvf  -
 
 # RUN curl -L "http://dl.bintray.com/neilellis/rendercat/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2" > /tmp/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2
 
