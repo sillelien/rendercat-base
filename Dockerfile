@@ -25,10 +25,10 @@ RUN mkdir /app
 RUN mkdir ~/fonts/
 RUN apt-get install -y curl
 RUN mkdir -p /usr/share/fonts
-RUN curl -L "http://dl.bintray.com/neilellis/rendercat/google-fonts.tgz" | tar -C /usr/share/fonts -zxvf  -
-RUN curl -L "http://dl.bintray.com/neilellis/rendercat/fonts.tgz" | tar -C /usr/share/fonts -zxvf  -
+RUN curl -L "http://dl.bintray.com/neilellis/rendercat/google-fonts.tgz" | tar -C /usr/share/fonts/ --transform='s/.*\///' -zxvf  -
+RUN curl -L "http://dl.bintray.com/neilellis/rendercat/fonts.tgz" | tar -C /usr/share/fonts/ --transform='s/.*\///' -zxvf  -
+RUN ls -l /usr/share/fonts
 RUN chmod -R 755 /usr/share/fonts
-RUN fc-cache -fv
 
 # RUN curl -L "http://dl.bintray.com/neilellis/rendercat/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2" > /tmp/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2
 
@@ -58,9 +58,6 @@ RUN apt-get install -y nginx
 RUN yes |  apt-get install -y msttcorefonts
 RUN  apt-get install -y freetype*
 RUN  apt-get install -y fonts-cantarell lmodern ttf-aenigma ttf-georgewilliams ttf-bitstream-vera ttf-sjfonts ttf-tuffy tv-fonts ubuntustudio-font-meta
-#ADD bin/install-google-fonts.sh ./
-#RUN chmod 755 install-google-fonts.sh
-#RUN ./install-google-fonts.sh
 RUN fc-cache -fv
 
 #GraphicsMagick
