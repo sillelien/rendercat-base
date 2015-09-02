@@ -25,8 +25,8 @@ RUN mkdir /app
 RUN mkdir ~/fonts/
 RUN apt-get install -y curl
 RUN mkdir -p /usr/share/fonts
-RUN curl -L "http://dl.bintray.com/neilellis/rendercat/google-fonts.tgz" | tar -C /usr/share/fonts/ --transform='s/.*\///' -zxvf  -
-RUN curl -L "http://dl.bintray.com/neilellis/rendercat/fonts.tgz" | tar -C /usr/share/fonts/ --transform='s/.*\///' -zxvf  -
+RUN curl -L "http://neil-public.s3-website-eu-west-1.amazonaws.com/google-fonts.tgz" | tar -C /usr/share/fonts/ --transform='s/.*\///' -zxvf  -
+RUN curl -L "http://neil-public.s3-website-eu-west-1.amazonaws.com/fonts.tgz" | tar -C /usr/share/fonts/ --transform='s/.*\///' -zxvf  -
 RUN ls -l /usr/share/fonts
 RUN chmod -R 755 /usr/share/fonts
 
