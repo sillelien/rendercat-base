@@ -30,7 +30,6 @@ RUN curl -L "http://neil-public.s3-website-eu-west-1.amazonaws.com/fonts.tgz" | 
 RUN ls -l /usr/share/fonts
 RUN chmod -R 755 /usr/share/fonts
 
-# RUN curl -L "http://dl.bintray.com/neilellis/rendercat/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2" > /tmp/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2
 
 #NodeJS
 RUN apt-get install -y make gcc g++ wget python software-properties-common
@@ -51,7 +50,7 @@ RUN \
 # Install basic packages.
 RUN apt-get install -y  python-urllib3  perl-base perl libc6  dbus libdbus-glib-1-2  bzip2 git  unzip git-core xvfb timelimit graphicsmagick
 
-# Download and Install Nginx
+# Install Nginx
 RUN apt-get install -y nginx
 
 #Fonts
@@ -66,20 +65,10 @@ RUN  apt-get install -y graphicsmagick
 #CutyCapt
 RUN  apt-get install -y cutycapt
 
-#Git Related
-RUN curl https://raw.githubusercontent.com/progrium/gitreceive/master/gitreceive > /usr/local/bin/gitreceive
-RUN chmod 755 /usr/local/bin/gitreceive
-RUN /usr/local/bin/gitreceive init
 
 # PhantomJS
 RUN apt-get install -y libfreetype6 libfontconfig1
 RUN apt-get install -y phantomjs
-# RUN tar -xjvf /tmp/phantomjs-${PHANTOM_VERSION}-linux-x86_64.tar.bz2
-# RUN mv phantomjs-${PHANTOM_VERSION}-linux-x86_64 /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64
-# #ADD http://rendercatdeps.s3-website-us-east-1.amazonaws.com/phantomjs-1-9-webfonts /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs
-# RUN ln -s /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
-# RUN chmod 755 /usr/local/phantomjs-${PHANTOM_VERSION}-linux-x86_64/bin/phantomjs
-
 
 # SlimerJS
 RUN apt-get install -y dbus libdbus-glib-1-2  bzip2 firefox
