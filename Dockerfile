@@ -8,7 +8,7 @@ WORKDIR /root
 # Env
 ENV SLIMERJS_VERSION_M 0.9
 ENV SLIMERJS_VERSION_F 0.9.4
-# ENV PHANTOM_VERSION 1.9.8
+ENV PHANTOM_VERSION 1.9.8
 
 # Update OS.
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty multiverse" >> /etc/apt/sources.list
@@ -49,7 +49,7 @@ RUN \
 
 
 # Install basic packages.
-RUN apt-get install -y  python-urllib3  perl-base perl libc6  dbus libdbus-glib-1-2  bzip2 git htop unzip vim git-core xvfb timelimit psmisc graphicsmagick openssh-server fail2ban
+RUN apt-get install -y  python-urllib3  perl-base perl libc6  dbus libdbus-glib-1-2  bzip2 git  unzip git-core xvfb timelimit graphicsmagick
 
 # Download and Install Nginx
 RUN apt-get install -y nginx
