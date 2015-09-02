@@ -47,7 +47,8 @@ RUN apt-get install -y nginx
 #Fonts
 RUN yes |  apt-get install -y msttcorefonts
 RUN  apt-get install -y freetype*
-RUN  apt-get install -y fonts-cantarell lmodern ttf-aenigma ttf-georgewilliams ttf-bitstream-vera ttf-sjfonts ttf-tuffy tv-fonts ubuntustudio-font-meta
+RUN  apt-get install -y fonts-cantarell lmodern ttf-aenigma ttf-georgewilliams ttf-bitstream-vera ttf-sjfonts ttf-tuffy tv-fonts
+#ubuntustudio-font-meta
 RUN fc-cache -fv
 
 #GraphicsMagick
